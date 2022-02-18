@@ -1,1 +1,1 @@
-# redux-clone
+# Basic Redux clone
