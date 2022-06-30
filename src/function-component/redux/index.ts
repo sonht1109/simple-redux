@@ -1,4 +1,4 @@
-import { Reducer, Store } from "./types";
+import { Reducer } from "./types";
 
 export const createStore = <T extends Reducer>(
   reducer: T

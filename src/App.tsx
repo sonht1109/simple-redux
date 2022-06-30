@@ -1,7 +1,8 @@
-import Count from "./functionComponent/components";
-import { createStore } from "./functionComponent/redux";
-import { Provider } from "./functionComponent/redux/react-redux";
-import { reducer } from "./functionComponent/redux/reducer";
+// import Count from "./function-component/components";
+import Count from "./class-component/components";
+import { createStore } from "./function-component/redux";
+import { Provider } from "./function-component/redux/react-redux";
+import { reducer } from "./function-component/redux/reducer";
 
 function App() {
   const store = createStore(reducer);
