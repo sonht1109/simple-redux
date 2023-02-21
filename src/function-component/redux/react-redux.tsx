@@ -14,9 +14,13 @@ export const useSelector = (selector: (state: any) => any) => {
   const [value, setValue] = useState<any>(selector(store?.getState()));
 
   useEffect(() => {
-    store.subscribe(() => {
+    const listener = () => {
       setValue(selector(store?.getState()));
-    });
+    };
+    store.subscribe(listener);
+    return () => {
+      store.unsubscribe(listener);
+    };
   }, []);
 
   return value;
