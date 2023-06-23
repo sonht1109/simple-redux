@@ -1,3 +1,5 @@
+import countReducer from "../components/Count/store";
+import combineReducers from "./combine-reducers";
 import { Reducer } from "./types";
 
 export const createStore = <T extends Reducer>(
@@ -8,7 +10,7 @@ export const createStore = <T extends Reducer>(
   getState: () => Parameters<T>[0];
   unsubscribe: (listener: Function) => void;
 } => {
-  let state = reducer(undefined, {});
+  let state = reducer({}, {});
   let listeners: Function[] = [];
 
   const subscribe = (listener: Function) => {
@@ -21,6 +23,7 @@ export const createStore = <T extends Reducer>(
 
   let dispatch = (action: Parameters<T>[1]) => {
     state = reducer(state, action);
+    console.log({ action, state });
     listeners.forEach((listener) => {
       listener();
     });
@@ -30,3 +33,7 @@ export const createStore = <T extends Reducer>(
 
   return { dispatch, subscribe, getState, unsubscribe };
 };
+
+const store = createStore(combineReducers({ count: countReducer }));
+
+export default store;

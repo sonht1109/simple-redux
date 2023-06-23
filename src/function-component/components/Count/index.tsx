@@ -1,5 +1,4 @@
-import React from "react";
-import { useDispatch, useSelector } from "../redux/react-redux";
+import { useDispatch, useSelector } from "../../redux/react-redux";
 
 export default function Count() {
   return (
@@ -11,9 +10,9 @@ export default function Count() {
 }
 
 const View = () => {
-  const count = useSelector((state) => state.count);
+  const { value } = useSelector((state) => state.count);
 
-  return <h3>{count}</h3>;
+  return <h3>{value}</h3>;
 };
 
 const Controller = () => {

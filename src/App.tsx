@@ -1,14 +1,11 @@
 import { useState } from "react";
-import Count from "./function-component/components";
-import { createStore } from "./function-component/redux";
+import store, { createStore } from "./function-component/redux";
 import { Provider } from "./function-component/redux/react-redux";
-import { reducer } from "./function-component/redux/reducer";
+import Count from "./function-component/components/Count";
 
 function App() {
-  const store = createStore(reducer);
-
   return (
-    <Provider store={store}>
+    <Provider {...{ store }}>
       <Component />
     </Provider>
   );
