@@ -1,4 +1,4 @@
-# Redux clone
+# Simple Redux
 This project is to learn how redux work. It is composed from many other sources. There are two sections: one about function component style and one about class component style.
 
 ## Start app
